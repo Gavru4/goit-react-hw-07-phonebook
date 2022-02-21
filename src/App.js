@@ -3,19 +3,16 @@ import Section from "./Components/Section/Section";
 import Filter from "./Components/Filter/Filter";
 import ContactList from "./Components/ContactList/ContactList";
 import ContactForm from "./Components/ContactForm/ContactForm";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getContacts } from "./redux/contacts/contactsOperation";
 
 const App = () => {
-  // const [contacts, setContacts] = useState(
-  //   () => JSON.parse(localStorage.getItem("contact")) || []
-  // );
-  // useEffect(() => {
-  //   localStorage.setItem("contact", JSON.stringify(contacts));
-  // }, [contacts]);
+  const dispatch = useDispatch();
 
-  // const heandlerInputChange = (event) => {
-  //   const { value } = event.target;
-  //   setFilter(value);
-  // };
+  useEffect(() => {
+    dispatch(getContacts());
+  }, [dispatch]);
 
   return (
     <>

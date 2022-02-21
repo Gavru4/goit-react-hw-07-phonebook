@@ -13,7 +13,7 @@ const ContactList = () => {
         {contactsList?.map((el) => {
           return (
             <li className={s.item} key={el.id}>
-              {el.name}: {el.number}
+              {el.name}: {el.phone}
               <button
                 className={s.btn}
                 onClick={() => {
