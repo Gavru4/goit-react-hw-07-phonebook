@@ -11,18 +11,11 @@ const ContactForm = () => {
   const [form, setForm] = useState(stateObj);
 
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.transactions.contacts);
+  const contacts = useSelector((state) => state.contacts);
 
   const heandlerInputChange = (event) => {
     const { name, value } = event.target;
     setForm({ ...form, [name]: value });
-
-    //   if (name === "name") {
-    //     dispatch(addName(value));
-    //   }
-    // if (name === "number") {
-    //   dispatch(addNumber(value));
-    // }
   };
 
   const onContactIncludes = (form) => {
@@ -36,12 +29,8 @@ const ContactForm = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-
     onContactIncludes(form);
     resetForm();
-
-    // dispatch(writeContacts(contacts));
-    // dispatch(clear());
   };
 
   const resetForm = () => {
@@ -54,9 +43,6 @@ const ContactForm = () => {
         <input
           value={form.name}
           onChange={heandlerInputChange}
-          // onChange={(e) => {
-          //   dispatch(addName(e.target.value));
-          // }}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -67,9 +53,6 @@ const ContactForm = () => {
         <input
           value={form.number}
           onChange={heandlerInputChange}
-          // onChange={(e) => {
-          //   dispatch(addNumber(e.target.value));
-          // }}
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"

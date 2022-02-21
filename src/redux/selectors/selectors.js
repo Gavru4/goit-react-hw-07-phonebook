@@ -1,5 +1,5 @@
 export const filterContactsSelectors = (state) => {
-  const { filter, contacts } = state.transactions;
+  const { filter, contacts } = state;
   const normalizedFilter = filter.toLocaleLowerCase();
   const findEl =
     contacts.length === 0
