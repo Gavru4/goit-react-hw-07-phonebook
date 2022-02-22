@@ -7,7 +7,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getContacts } from "./redux/contacts/contactsOperation";
 import { loaderSelector } from "./redux/selectors/selectors";
-
+const loaderStyle = {
+  position: "absolute",
+  paddingLeft: "50px",
+};
 const App = () => {
   const dispatch = useDispatch();
 
@@ -21,8 +24,9 @@ const App = () => {
     <>
       <Section title="Phonebook">
         <ContactForm />
+        {isLoading && <h2 style={loaderStyle}>Loading....</h2>}
       </Section>
-      {isLoading && <h2>Loading....</h2>}
+
       <Section title="Contacts">
         <>
           <Filter />

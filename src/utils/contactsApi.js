@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://6213fd6889fad53b1f07c522.mockapi.io/api/v1/"; //contacts
+const baseUrl = "https://6213fd6889fad53b1f07c522.mockapi.io/api/v1/";
 
 axios.defaults.baseURL = baseUrl;
 

@@ -1,5 +1,4 @@
 import { createReducer } from "@reduxjs/toolkit";
-// import { writeContacts, removeContacts } from "./contactsActions";
 import { deleteContact, getContacts, putContact } from "./contactsOperation";
 
 export const contactsRudeser = createReducer([], {
