@@ -1,12 +1,23 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { writeContacts, removeContacts } from "./contactsActions";
-import { getContacts } from "./contactsOperation";
+// import { writeContacts, removeContacts } from "./contactsActions";
+import { deleteContact, getContacts, putContact } from "./contactsOperation";
 
 export const contactsRudeser = createReducer([], {
-  [writeContacts]: (state, { payload }) => [...state, payload],
   [getContacts.fulfilled]: (_, { payload }) => payload,
-  [removeContacts]: (state, { payload }) =>
-    state.filter((el) => el.id !== payload),
+  [deleteContact.fulfilled]: (state, { payload }) => {
+    return state.filter((el) => el.id !== payload.id);
+  },
+  [putContact.fulfilled]: (state, { payload }) => [...state, payload],
 });
 
-export const isLoadingReduser = createReducer(false, {});
+export const isLoadingReduser = createReducer(false, {
+  [getContacts.pending]: () => true,
+  [getContacts.fulfilled]: () => false,
+  [getContacts.rejected]: () => false,
+  [deleteContact.pending]: () => true,
+  [deleteContact.fulfilled]: () => false,
+  [deleteContact.rejected]: () => false,
+  [putContact.pending]: () => true,
+  [putContact.fulfilled]: () => false,
+  [putContact.rejected]: () => false,
+});

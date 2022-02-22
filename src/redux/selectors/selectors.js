@@ -9,3 +9,4 @@ export const filterContactsSelectors = (state) => {
         );
   return findEl;
 };
+export const loaderSelector = ({ isloading }) => isloading;

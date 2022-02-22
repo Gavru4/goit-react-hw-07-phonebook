@@ -2,11 +2,12 @@ import { useSelector } from "react-redux";
 import s from "./ContactList.module.css";
 import { filterContactsSelectors } from "../../redux/selectors/selectors";
 import { useDispatch } from "react-redux";
-import { removeContacts } from "../../redux/contacts/contactsActions";
+import { deleteContact } from "../../redux/contacts/contactsOperation";
 
 const ContactList = () => {
   const contactsList = useSelector((state) => filterContactsSelectors(state));
   const dispatch = useDispatch();
+
   return (
     contactsList && (
       <ol className={s.list}>
@@ -17,7 +18,7 @@ const ContactList = () => {
               <button
                 className={s.btn}
                 onClick={() => {
-                  dispatch(removeContacts(el.id));
+                  dispatch(deleteContact(el.id));
                 }}
               >
                 Delate

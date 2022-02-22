@@ -12,3 +12,21 @@ export const getContactsApi = () => {
       throw error;
     });
 };
+
+export const putContactApi = (form) => {
+  return axios
+    .post("contacts", form)
+    .then((res) => res.data)
+    .catch((error) => {
+      throw error;
+    });
+};
+
+export const deleteContactApi = (id) => {
+  return axios
+    .delete(`contacts/${id}`)
+    .then((res) => res.data)
+    .catch((error) => {
+      throw error;
+    });
+};
